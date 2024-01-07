@@ -5,4 +5,4 @@ from .models import Post
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=0)
     template_name = "website/index.html"
-    
+    paginate_by = 3
