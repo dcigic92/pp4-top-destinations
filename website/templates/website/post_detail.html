@@ -1,0 +1,27 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+{% load static %}
+
+<div class="container-xl mt-4">
+    <div class="col-md-8 offset-md-2">
+        <div class="post-image-container">
+            {% if "placeholder" in post.featured_image.url %}
+                <img src="{% static 'images/default.jpg' %}" alt="placeholder" class="post-image">
+            {% else %}
+                <img src="{{ post.featured_image.url }}" alt="Post Image" class="post-image">
+            {% endif %}
+                <div class="post-overlay">
+                <h1 class="post-title">{{ post.destination_name }}, {{ post.country_of_destination }}</h1>
+                <p class="post-meta">Author: {{ post.author }}</p>
+                <p class="post-meta">Published on: {{ post.created_on }}</p>
+                </div>
+        </div>
+        <div class="post-content mt-4">
+            {{ post.content }}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
