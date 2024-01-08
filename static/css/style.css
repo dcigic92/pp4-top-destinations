@@ -104,3 +104,16 @@ footer {
     color: white;
     border-radius: 5px;
 }
+
+/* account templates */
+
+.btn-acc {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.btn-acc:hover {
+    background-color: #ffffff;
+    color: black;
+    border-color: #343a40;
+}
