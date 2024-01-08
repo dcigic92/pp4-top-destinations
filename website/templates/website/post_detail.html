@@ -4,22 +4,46 @@
 
 {% load static %}
 
-<div class="container-xl mt-4">
-    <div class="col-md-8 offset-md-2">
-        <div class="post-image-container">
-            {% if "placeholder" in post.featured_image.url %}
-                <img src="{% static 'images/default.jpg' %}" alt="placeholder" class="post-image">
-            {% else %}
-                <img src="{{ post.featured_image.url }}" alt="Post Image" class="post-image">
-            {% endif %}
-                <div class="post-overlay">
-                <h1 class="post-title">{{ post.destination_name }}, {{ post.country_of_destination }}</h1>
-                <p class="post-meta">Author: {{ post.author }}</p>
-                <p class="post-meta">Published on: {{ post.created_on }}</p>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="post-image-container">
+                {% if "placeholder" in post.featured_image.url %}
+                <img src="{% static 'images/default.jpg' %}" alt="placeholder" class="post-image img-fluid rounded">
+                {% else %}
+                <img src="{{ post.featured_image.url }}" alt="Post Image" class="post-image img-fluid rounded">
+                {% endif %}
+                <div class="post-overlay p-3">
+                    <h1 class="post-title text-light">{{ post.destination_name }}, {{ post.country_of_destination }}</h1>
+                    <p class="post-meta text-light">Author: {{ post.author }}</p>
+                    <p class="post-meta text-light">Published on: {{ post.created_on }}</p>
                 </div>
+            </div>
+            <div class="post-content mt-4">
+                {{ post.content | safe }}
+                <strong class="text-secondary">
+                    <i class="fas fa-comments"></i> {{ comment_count }}
+                </strong>
+            </div>
         </div>
-        <div class="post-content mt-4">
-            {{ post.content | safe }}
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <h3 class="card-header fw-bold bg-dark text-white">Comments ({{ comment_count }})</h3>
+                <div class="card-body">
+                    {% for comment in comments %}
+                    {% if comment.status == 0 %}
+                    <div class="p-3 border-bottom">
+                        <p class="mb-1">
+                            <strong>{{ comment.author }}</strong> <span class="text-muted">{{ comment.created_on }}</span>
+                        </p>
+                        <div class="text-muted">{{ comment.body | linebreaks }}</div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
 </div>
