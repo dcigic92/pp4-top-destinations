@@ -161,3 +161,8 @@ footer {
     max-height: 400px; 
     overflow-y: auto;
 }
+
+.btn-edit {
+    background-color: green;
+    color: black;
+}

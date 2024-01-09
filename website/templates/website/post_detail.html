@@ -27,25 +27,23 @@
         </div>
     </div>
     <!-- New Comment Section -->
+    {% if user.is_authenticated %}
     <div class="row mt-1">
         <div class="col-md-8 offset-md-2">
             <div class="card mb-4" id="new_comment">
                 <div class="card-body">
-                {% if user.is_authenticated %}
-                <h3 class="post-title">Leave a comment:</h3>
-                <p>Posting as: <span class="fw-bold">{{ user.username }}</span></p>
-                <form id="commentForm" method="post" placeholder="Type your message here...">
-                    {{ comment_form | crispy }}
-                    {% csrf_token %}
-                    <button id="submitButton" type="submit" class="btn btn-acc btn-md">Submit</button>
-                </form>
-                {% else %}
-                <p class="text-light">Log in to leave a comment</p>
-                {% endif %}
+                    <h3 class="post-title">Leave a comment:</h3>
+                    <p>Posting as: <span class="fw-bold">{{ user.username }}</span></p>
+                    <form id="commentForm" method="post" placeholder="Type your message here...">
+                        {{ comment_form | crispy }}
+                        {% csrf_token %}
+                        <button id="submitButton" type="submit" class="btn btn-acc btn-md">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+    {% endif %}
     <!-- Existing Comments Section -->
     {% if comment_count != 0 %}
     <div class="row mt-4">
@@ -56,10 +54,13 @@
                     {% for comment in comments %}
                     {% if comment.status == 0 %}
                     <div class="p-3 border-bottom">
-                        <p class="mb-1">
-                            <strong>{{ comment.author }}</strong> <span class="text-muted">{{ comment.created_on }}</span>
+                        <p class="mb-1 fw-bold">
+                            {{ comment.author }} <span class="text-muted">{{ comment.created_on }}</span>
                         </p>
-                        <div class="text-muted">{{ comment.body | linebreaks }}</div>
+                        <div id="comment{{ comment.id }}" class="text-muted">{{ comment.body | linebreaks }}</div>
+                        {% if user.is_authenticated and comment.author == user %}
+                        <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+                        {% endif %}
                     </div>
                     {% endif %}
                     {% endfor %}
@@ -71,3 +72,7 @@
 </div>
 
 {% endblock content %}
+
+{% block js %}
+<script src="{% static 'js/comments.js' %}"></script>
+{% endblock %}
