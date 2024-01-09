@@ -1,20 +1,31 @@
 {% extends 'base.html' %}
 
-{% block content %}
-
 {% load static %}
+
+{% block content %}
 
 <!-- Main Content -->
 <div class="container-fluid mt-4">
     <div class="row row-cols-1 row-cols-lg-3 g-4">
         {% for post in post_list %}
             <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                    <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                        <h5 class="card-title">{{ post.destination_name }}</h5>
-                        <p class="card-text">{{ post.excerpt }}</p>
-                    </a>
+                <div class="card pagination-card">
+                    {% if "placeholder" in post.featured_image.url %}
+                        <img src="{% static 'images/default.jpg' %}" alt="placeholder" class="post-image">
+                    {% else %}
+                        <img src="{{ post.featured_image.url }}" alt="Post Image" class="post-image">
+                    {% endif %}
+                    <div class="pagination-overlay bg-dark P-3">
+                        <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                            <h1 class="post-title text-white">
+                                {{ post.destination_name }}, {{ post.country_of_destination }}
+                            </h1>
+                        </a>
+                        <p class="post-meta text-white">Author: {{ post.author }}</p>
+                        <p class="post-meta text-white">Published on: {{ post.created_on }}</p>
+                        <div class="comments-icon">
+                            <i class="far fa-comments"></i><span class="text-white fw-bold"> {{ post.comments.count }}</span>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,36 +1,57 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
-{% load static %}
-
-<div class="container mt-4">
-    <div class="row">
+<div class="container">
+    <div class="row mt-4">
         <div class="col-md-8 offset-md-2">
+            <!-- Post Image and Details -->
             <div class="post-image-container">
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="{% static 'images/default.jpg' %}" alt="placeholder" class="post-image img-fluid rounded">
+                <img src="{% static 'images/default.jpg' %}" alt="placeholder" class="post-image">
                 {% else %}
-                <img src="{{ post.featured_image.url }}" alt="Post Image" class="post-image img-fluid rounded">
+                <img src="{{ post.featured_image.url }}" alt="Post Image" class="post-image">
                 {% endif %}
                 <div class="post-overlay p-3">
-                    <h1 class="post-title text-light">{{ post.destination_name }}, {{ post.country_of_destination }}</h1>
-                    <p class="post-meta text-light">Author: {{ post.author }}</p>
-                    <p class="post-meta text-light">Published on: {{ post.created_on }}</p>
+                    <h1 class="post-title text-white">{{ post.destination_name }}, {{ post.country_of_destination }}</h1>
+                    <p class="post-meta text-white">Author: {{ post.author }}</p>
+                    <p class="post-meta text-white">Published on: {{ post.created_on }}</p>
                 </div>
             </div>
-            <div class="post-content mt-4">
+            <div class="card mb-4">
                 {{ post.content | safe }}
-                <strong class="text-secondary">
-                    <i class="fas fa-comments"></i> {{ comment_count }}
-                </strong>
             </div>
         </div>
     </div>
+    <!-- New Comment Section -->
+    <div class="row mt-1">
+        <div class="col-md-8 offset-md-2">
+            <div class="card mb-4" id="new_comment">
+                <div class="card-body">
+                {% if user.is_authenticated %}
+                <h3 class="post-title">Leave a comment:</h3>
+                <p>Posting as: <span class="fw-bold">{{ user.username }}</span></p>
+                <form id="commentForm" method="post" placeholder="Type your message here...">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <button id="submitButton" type="submit" class="btn btn-acc btn-md">Submit</button>
+                </form>
+                {% else %}
+                <p class="text-light">Log in to leave a comment</p>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Existing Comments Section -->
+    {% if comment_count != 0 %}
     <div class="row mt-4">
         <div class="col-md-8 offset-md-2">
-            <div class="card">
-                <h3 class="card-header fw-bold bg-dark text-white">Comments ({{ comment_count }})</h3>
+            <div class="card" id="comments_section">
+                <h1 class="card-header post-title bg-dark text-white">Comments ({{ comment_count }})</h1>
                 <div class="card-body">
                     {% for comment in comments %}
                     {% if comment.status == 0 %}
@@ -46,6 +67,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
 </div>
 
 {% endblock content %}
