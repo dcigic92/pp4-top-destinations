@@ -5,10 +5,12 @@ from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm
 
+
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=0)
     template_name = "website/index.html"
     paginate_by = 3
+
 
 def post_detail(request, slug):
     
@@ -38,6 +40,7 @@ def post_detail(request, slug):
         },
     )
 
+
 def comment_edit(request, slug, comment_id):
     if request.method == "POST":
 
@@ -51,5 +54,17 @@ def comment_edit(request, slug, comment_id):
             comment.post = post
             comment.status = 0
             comment.save()
+
+    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+def comment_delete(request, slug, comment_id):
+
+    queryset = Post.objects.filter(status=0)
+    post = get_object_or_404(queryset, slug=slug)
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    if comment.author == request.user:
+        comment.delete()
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))

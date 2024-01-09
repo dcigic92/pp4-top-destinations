@@ -37,7 +37,7 @@
                     <form id="commentForm" method="post" placeholder="Type your message here...">
                         {{ comment_form | crispy }}
                         {% csrf_token %}
-                        <button id="submitButton" type="submit" class="btn btn-acc btn-md">Submit</button>
+                        <button id="submitButton" type="submit" class="btn btn-dark btn-sm">Submit</button>
                     </form>
                 </div>
             </div>
@@ -59,7 +59,8 @@
                         </p>
                         <div id="comment{{ comment.id }}" class="text-muted">{{ comment.body | linebreaks }}</div>
                         {% if user.is_authenticated and comment.author == user %}
-                        <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+                        <button class="btn btn-delete btn-danger btn-sm" comment_id="{{ comment.id }}">Delete</button>
+                        <button class="btn btn-edit btn-success btn-sm" comment_id="{{ comment.id }}">Edit</button>
                         {% endif %}
                     </div>
                     {% endif %}
@@ -69,6 +70,29 @@
         </div>
     </div>
     {% endif %}
+</div>
+<!-- Delete confirmation modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1"
+  aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"
+          id="deleteModalLabel">Delete comment?</h5>
+        <button type="button" class="btn-close"
+          data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete your comment?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark"
+          data-bs-dismiss="modal">Close</button>
+        <a id="deleteConfirm" href="#" class="btn
+          btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock content %}

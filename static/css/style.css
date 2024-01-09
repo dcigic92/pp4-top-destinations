@@ -72,13 +72,17 @@ footer {
     color: black;
 }
 
+.page-link:focus {
+    box-shadow: none;
+}
+
 .page-link {
-    color: #333;
+    color: black;
     text-decoration: none;
 }
 
 .page-link:hover {
-    color: #333;
+    color: black;
 }
 
 .comments-icon {
@@ -135,19 +139,6 @@ footer {
     color: white;
 }
 
-/* account templates */
-
-.btn-acc {
-    background-color: black;
-    color: #ffffff;
-}
-
-.btn-acc:hover {
-    background-color: #ffffff;
-    color: black;
-    border-color: black;
-}
-
 /* new comment section */
 
 #commentForm textarea {
@@ -160,9 +151,4 @@ footer {
 #comments_section {
     max-height: 400px; 
     overflow-y: auto;
-}
-
-.btn-edit {
-    background-color: green;
-    color: black;
 }
