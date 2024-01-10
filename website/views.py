@@ -3,7 +3,8 @@ from django.urls import reverse
 from django.views import generic
 from django.http import HttpResponseRedirect
 from .models import Post, Comment, Country
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
+from django.template.defaultfilters import slugify
 
 
 class PostList(generic.ListView):
@@ -80,3 +81,27 @@ def comment_delete(request, country, slug, comment_id):
         comment.delete()
 
     return HttpResponseRedirect(reverse('post_detail', args=[country, slug]))
+
+
+def add_destination(request):
+
+    if request.method == "POST":
+        post_form = PostForm(request.POST, request.FILES)
+        if post_form.is_valid():
+            post = post_form.save(commit=False)
+            post.author = request.user
+            post.slug = slugify(post.destination_name)
+            post.save()
+
+    post_form = PostForm()
+
+    if request.method == "POST":
+        return HttpResponseRedirect(reverse('home'))
+    else:
+        return render(
+            request, 
+            "website/add_post.html", 
+            {
+                "post_form": post_form,
+            },
+        )

@@ -1,4 +1,4 @@
-from .models import Country, Post
+from .models import Country
 
 def unique_countries(request):
     unique_countries = Country.objects.all()
