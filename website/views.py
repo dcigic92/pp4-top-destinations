@@ -53,7 +53,7 @@ def post_detail(request, country, slug):
     )
 
 
-def comment_edit(request, slug, comment_id):
+def comment_edit(request, country, slug, comment_id):
     if request.method == "POST":
 
         queryset = Post.objects.filter(status=0)
@@ -67,10 +67,10 @@ def comment_edit(request, slug, comment_id):
             comment.status = 0
             comment.save()
 
-    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+    return HttpResponseRedirect(reverse('post_detail', args=[country, slug]))
 
 
-def comment_delete(request, slug, comment_id):
+def comment_delete(request, country, slug, comment_id):
 
     queryset = Post.objects.filter(status=0)
     post = get_object_or_404(queryset, slug=slug)
@@ -79,4 +79,4 @@ def comment_delete(request, slug, comment_id):
     if comment.author == request.user:
         comment.delete()
 
-    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+    return HttpResponseRedirect(reverse('post_detail', args=[country, slug]))
