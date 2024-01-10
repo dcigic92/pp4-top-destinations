@@ -19,6 +19,11 @@
                     <h1 class="post-title text-white">{{ post.destination_name }}, {{ post.country_of_destination }}</h1>
                     <p class="post-meta text-white">Author: {{ post.author }}</p>
                     <p class="post-meta text-white">Published on: {{ post.created_on }}</p>
+                    {% if user.is_authenticated and post.author == user %}
+                        <button class="btn btn-delete-post btn-danger btn-sm" post_id="{{ post.id }}"> 
+                            Delete
+                        </button>
+                    {% endif %}
                 </div>
             </div>
             <div class="card mb-4">
@@ -59,8 +64,12 @@
                         </p>
                         <div id="comment{{ comment.id }}" class="text-muted">{{ comment.body | linebreaks }}</div>
                         {% if user.is_authenticated and comment.author == user %}
-                        <button class="btn btn-delete btn-danger btn-sm" comment_id="{{ comment.id }}">Delete</button>
-                        <button class="btn btn-edit btn-success btn-sm" comment_id="{{ comment.id }}">Edit</button>
+                            <button class="btn btn-delete-comment btn-danger btn-sm" comment_id="{{ comment.id }}">
+                                Delete
+                            </button>
+                            <button class="btn btn-edit-comment btn-success btn-sm" comment_id="{{ comment.id }}">
+                                Edit
+                            </button>
                         {% endif %}
                     </div>
                     {% endif %}
@@ -71,14 +80,15 @@
     </div>
     {% endif %}
 </div>
-<!-- Delete confirmation modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1"
+
+<!-- Delete comment modal -->
+<div class="modal fade" id="deleteCommentModal" tabindex="-1"
   aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title"
-          id="deleteModalLabel">Delete comment?</h5>
+          id="deleteCommentModalLabel">Delete comment?</h5>
         <button type="button" class="btn-close"
           data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
@@ -88,7 +98,31 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-dark"
           data-bs-dismiss="modal">Close</button>
-        <a id="deleteConfirm" href="#" class="btn
+        <a id="deleteCommentConfirm" href="#" class="btn
+          btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete post modal -->
+<div class="modal fade" id="deletePostModal" tabindex="-1"
+  aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"
+          id="deletePostModalLabel">Delete post?</h5>
+        <button type="button" class="btn-close"
+          data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete your post?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark"
+          data-bs-dismiss="modal">Close</button>
+        <a id="deletePostConfirm" href="#" class="btn
           btn-danger">Delete</a>
       </div>
     </div>
@@ -98,5 +132,5 @@
 {% endblock content %}
 
 {% block js %}
-<script src="{% static 'js/comments.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
 {% endblock %}

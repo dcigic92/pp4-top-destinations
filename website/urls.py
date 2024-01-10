@@ -10,4 +10,6 @@ urlpatterns = [
          views.comment_edit, name='comment_edit'),
     path('<str:country>/<slug:slug>/delete_comment/<int:comment_id>',
          views.comment_delete, name='comment_delete'),
+    path('<str:country>/<slug:slug>/delete_post/<int:id>',
+         views.post_delete, name='post_delete'),
 ]

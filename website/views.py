@@ -105,3 +105,13 @@ def add_destination(request):
                 "post_form": post_form,
             },
         )
+
+def post_delete(request, country, slug, id):
+
+    queryset = Post.objects.filter(status=0)
+    post = get_object_or_404(queryset, pk=id)
+
+    if post.author == request.user:
+        post.delete()
+
+    return HttpResponseRedirect(reverse('home'))
