@@ -7,7 +7,7 @@
 <!-- Main Content -->
 <div class="container-fluid mt-4">
     <div class="row row-cols-1 row-cols-lg-3 g-4">
-        {% for post in post_list %}
+        {% for post in object_list %}
             <div class="col">
                 <a href="{% url 'post_detail' post.country_of_destination|lower post.slug %}" class="post-link">
                     <div class="card pagination-card">
@@ -51,7 +51,8 @@
                     <li>
                         <a href="?page={{ page_obj.next_page_number }}" class="page-link">
                              NEXT &raquo;
-                            </a></li>
+                            </a>
+                        </li>
                 {% endif %}
             </ul>
         </nav>

@@ -44,8 +44,13 @@
                             Sort by Country
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Country 1</a></li>
-                            <li><a class="dropdown-item" href="#">Country 2</a></li>
+                            {% for country in unique_countries %}
+                            <li>
+                                <a class="dropdown-item" href="{% url 'country_posts' country|lower %}">
+                                    {{ country }}
+                                </a>
+                            </li>
+                            {% endfor %}
                         </ul>
                     </li>
                     {% if user.is_authenticated %}

@@ -2,17 +2,29 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse 
 from django.views import generic
 from django.http import HttpResponseRedirect
-from .models import Post, Comment
+from .models import Post, Comment, Country
 from .forms import CommentForm
 
 
 class PostList(generic.ListView):
+    model = Post
     queryset = Post.objects.filter(status=0)
     template_name = "website/index.html"
     paginate_by = 3
 
 
-def post_detail(request, slug):
+class CountryPostsView(generic.ListView):
+    model = Post
+    template_name = 'website/country_posts.html'
+    paginate_by = 3
+
+    def get_queryset(self):
+        country = self.kwargs['country'].capitalize()
+        country_id = Country.objects.get(name=country)
+        return Post.objects.filter(country_of_destination=country_id.id)
+
+
+def post_detail(request, country, slug):
     
     queryset = Post.objects.filter(status=0)
     post = get_object_or_404(queryset, slug=slug)
