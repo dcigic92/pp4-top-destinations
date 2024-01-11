@@ -9,38 +9,46 @@
     <div class="row mt-4">
         <div class="col-md-8 offset-md-2">
             <!-- Post Image and Details -->
-            <div class="post-image-container">
+            <div class="card">
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="{% static 'images/default.jpg' %}" alt="placeholder" class="post-image">
+                    <img src="{% static 'images/default.jpg' %}" alt="placeholder" class="card-img-top">
                 {% else %}
-                <img src="{{ post.featured_image.url }}" alt="Post Image" class="post-image">
+                    <img src="{{ post.featured_image.url }}" alt="Post Image" class="card-img-top">
                 {% endif %}
-                <div class="post-overlay p-3">
-                    <h1 class="post-title text-white">{{ post.destination_name }}, {{ post.country_of_destination }}</h1>
-                    <p class="post-meta text-white">Author: {{ post.author }}</p>
-                    <p class="post-meta text-white">Published on: {{ post.created_on }}</p>
-                    {% if user.is_authenticated and post.author == user %}
-                        <button class="btn btn-delete-post btn-danger btn-sm" post_id="{{ post.id }}"> 
-                            Delete
-                        </button>
-                        <a href="{% url 'edit_post' post.country_of_destination|lower post.slug post.id %}">
-                            <button class="btn btn-edit-post btn-success btn-sm">
-                                Edit
+                <div class="card-body p-0">
+                    <div class="bg-dark">
+                        <h1 class="post-title text-white padding pt-2">
+                            {{ post.destination_name }}, {{ post.country_of_destination }}
+                        </h1>
+                        <p class="post-meta text-white padding pt-1">Author: {{ post.author }}</p>
+                        <p class="post-meta text-white padding pb-2">Published on: {{ post.created_on.date }}</p>
+                        {% if user.is_authenticated and post.author == user %}
+                            <div class="padding pb-2">
+                            <button class="btn btn-delete-post btn-danger btn-sm" post_id="{{ post.id }}"> 
+                                Delete
                             </button>
-                        </a>
-                    {% endif %}
-                </div>
-            </div>
-            <div class="card mb-4">
-                {{ post.content | safe }}
+                            <a href="{% url 'edit_post' post.country_of_destination|lower post.slug post.id %}">
+                                <button class="btn btn-edit-post btn-success btn-sm">
+                                    Edit
+                                </button>
+                            </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="card-text p-3">
+                        {{ post.content | safe }}
+                    </div>
+                </div>                
             </div>
         </div>
     </div>
+        
+
     <!-- New Comment Section -->
     {% if user.is_authenticated %}
-    <div class="row mt-1">
+    <div class="row mt-4">
         <div class="col-md-8 offset-md-2">
-            <div class="card mb-4" id="new_comment">
+            <div class="card" id="new_comment">
                 <div class="card-body">
                     <h3 class="post-title">Leave a comment:</h3>
                     <p>Posting as: <span class="fw-bold">{{ user.username }}</span></p>
@@ -87,51 +95,37 @@
 </div>
 
 <!-- Delete comment modal -->
-<div class="modal fade" id="deleteCommentModal" tabindex="-1"
-  aria-labelledby="deleteModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title"
-          id="deleteCommentModalLabel">Delete comment?</h5>
-        <button type="button" class="btn-close"
-          data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to delete your comment?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-dark"
-          data-bs-dismiss="modal">Close</button>
-        <a id="deleteCommentConfirm" href="#" class="btn
-          btn-danger">Delete</a>
-      </div>
+<div class="modal fade" id="deleteCommentModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteCommentModalLabel">Delete comment?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">Are you sure you want to delete your comment?</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                <a id="deleteCommentConfirm" href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <!-- Delete post modal -->
-<div class="modal fade" id="deletePostModal" tabindex="-1"
-  aria-labelledby="deleteModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title"
-          id="deletePostModalLabel">Delete post?</h5>
-        <button type="button" class="btn-close"
-          data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to delete your post?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-dark"
-          data-bs-dismiss="modal">Close</button>
-        <a id="deletePostConfirm" href="#" class="btn
-          btn-danger">Delete</a>
-      </div>
+<div class="modal fade" id="deletePostModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deletePostModalLabel">Delete post?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">Are you sure you want to delete your post?</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                <a id="deletePostConfirm" href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 {% endblock content %}
