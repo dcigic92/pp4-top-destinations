@@ -22,7 +22,7 @@ class CountryPostsView(generic.ListView):
 
     def get_queryset(self):
         country = self.kwargs['country']
-        country = custom_title_function(country)
+        country = custom_title_function(country.replace('-', ' '))
         country_id = Country.objects.get(name=country)
         return Post.objects.filter(country_of_destination=country_id.id)
 

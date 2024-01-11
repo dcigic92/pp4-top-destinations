@@ -46,7 +46,7 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             {% for country in unique_countries %}
                             <li>
-                                <a class="dropdown-item" href="{% url 'country_posts' country|lower %}">
+                                <a class="dropdown-item" href="{% url 'country_posts' country|slugify %}">
                                     {{ country }}
                                 </a>
                             </li>
