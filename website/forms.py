@@ -14,4 +14,9 @@ class CommentForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('destination_name', 'country_of_destination', 'featured_image', 'content', )
+        fields = ('destination_name', 'country_of_destination', 'featured_image', 'content',)
+
+class EditPostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ('featured_image', 'content',)

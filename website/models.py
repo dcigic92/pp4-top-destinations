@@ -5,7 +5,6 @@ from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Published"), (1, "Draft"), (2, "Removed"))
 
-# Create your models here.
 
 class Country(models.Model):
     name = models.CharField(max_length=200, unique=True)

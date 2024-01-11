@@ -5,17 +5,17 @@
 
 {%  block content %}
 
-{% if user.is_authenticated %}
+{% if user.is_authenticated and post.author == user %}
 
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h3>Add New Destination</h3>
+            <h3>{{post.destination_name}}, {{post.country_of_destination}}</h3>
             <div>
                 <form method="POST">
                     {{ post_form | crispy }}
                     {% csrf_token %}
-                    <button class="btn btn-dark">Save</button>
+                    <button class="btn btn-dark">Update</button>
                 </form>
             </div>
         </div>

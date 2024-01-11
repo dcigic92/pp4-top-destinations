@@ -23,6 +23,11 @@
                         <button class="btn btn-delete-post btn-danger btn-sm" post_id="{{ post.id }}"> 
                             Delete
                         </button>
+                        <a href="{% url 'edit_post' post.country_of_destination|lower post.slug post.id %}">
+                            <button class="btn btn-edit-post btn-success btn-sm">
+                                Edit
+                            </button>
+                        </a>
                     {% endif %}
                 </div>
             </div>
@@ -39,7 +44,7 @@
                 <div class="card-body">
                     <h3 class="post-title">Leave a comment:</h3>
                     <p>Posting as: <span class="fw-bold">{{ user.username }}</span></p>
-                    <form id="commentForm" method="post" placeholder="Type your message here...">
+                    <form id="commentForm" method="post">
                         {{ comment_form | crispy }}
                         {% csrf_token %}
                         <button id="submitButton" type="submit" class="btn btn-dark btn-sm">Submit</button>

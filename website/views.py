@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.views import generic
 from django.http import HttpResponseRedirect
 from .models import Post, Comment, Country
-from .forms import CommentForm, PostForm
+from .forms import CommentForm, PostForm, EditPostForm
 from django.template.defaultfilters import slugify
 
 
@@ -54,7 +54,7 @@ def post_detail(request, country, slug):
     )
 
 
-def comment_edit(request, country, slug, comment_id):
+def edit_comment(request, country, slug, comment_id):
     if request.method == "POST":
 
         queryset = Post.objects.filter(status=0)
@@ -71,7 +71,7 @@ def comment_edit(request, country, slug, comment_id):
     return HttpResponseRedirect(reverse('post_detail', args=[country, slug]))
 
 
-def comment_delete(request, country, slug, comment_id):
+def delete_comment(request, country, slug, comment_id):
 
     queryset = Post.objects.filter(status=0)
     post = get_object_or_404(queryset, slug=slug)
@@ -83,7 +83,7 @@ def comment_delete(request, country, slug, comment_id):
     return HttpResponseRedirect(reverse('post_detail', args=[country, slug]))
 
 
-def add_destination(request):
+def add_post(request):
 
     if request.method == "POST":
         post_form = PostForm(request.POST, request.FILES)
@@ -106,7 +106,8 @@ def add_destination(request):
             },
         )
 
-def post_delete(request, country, slug, id):
+
+def delete_post(request, country, slug, id):
 
     queryset = Post.objects.filter(status=0)
     post = get_object_or_404(queryset, pk=id)
@@ -115,3 +116,19 @@ def post_delete(request, country, slug, id):
         post.delete()
 
     return HttpResponseRedirect(reverse('home'))
+
+
+def edit_post(request, country, slug, id):
+    post = get_object_or_404(Post, id=id)
+
+    if request.method == "POST":
+        post_form = EditPostForm(request.POST, request.FILES, instance=post)
+        if post_form.is_valid() and post.author == request.user:
+            post.save()
+
+        return HttpResponseRedirect(reverse('post_detail', args=[country, slug]))
+    
+    else:
+        post_form = EditPostForm(instance=post)
+        context = {'post_form': post_form, 'id': id, 'post': post}
+        return render(request,'website/edit_post.html',context)

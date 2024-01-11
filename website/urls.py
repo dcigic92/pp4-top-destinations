@@ -3,13 +3,15 @@ from django.urls import path
 
 urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
-    path('add_destination/', views.add_destination, name='add_destination'), 
+    path('add_post/', views.add_post, name='add_post'), 
     path('<str:country>/', views.CountryPostsView.as_view(), name='country_posts'),
     path('<str:country>/<slug:slug>/', views.post_detail, name="post_detail"),
     path('<str:country>/<slug:slug>/edit_comment/<int:comment_id>',
-         views.comment_edit, name='comment_edit'),
+         views.edit_comment, name='edit_comment'),
     path('<str:country>/<slug:slug>/delete_comment/<int:comment_id>',
-         views.comment_delete, name='comment_delete'),
+         views.delete_comment, name='delete_comment'),
     path('<str:country>/<slug:slug>/delete_post/<int:id>',
-         views.post_delete, name='post_delete'),
+         views.delete_post, name='delete_post'),
+    path('<str:country>/<slug:slug>/edit_post/<int:id>',
+    views.edit_post, name='edit_post'),
 ]
