@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from .models import Post, Comment, Country
 from .forms import CommentForm, PostForm, EditPostForm
 from django.template.defaultfilters import slugify
+from .utils import custom_title_function
 
 
 class PostList(generic.ListView):
@@ -20,7 +21,8 @@ class CountryPostsView(generic.ListView):
     paginate_by = 3
 
     def get_queryset(self):
-        country = self.kwargs['country'].capitalize()
+        country = self.kwargs['country']
+        country = custom_title_function(country)
         country_id = Country.objects.get(name=country)
         return Post.objects.filter(country_of_destination=country_id.id)
 
