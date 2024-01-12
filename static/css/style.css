@@ -134,28 +134,14 @@ footer {
     max-width: 250px;
 }
 
-/* 404 */
+/* 404 and 500 */
 
-.page_404 {
+.page_error {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
-    background: #fff;
     font-family: "Arvo", serif;
-}
-
-.page_404 img {
-    width: 80%;
-    max-width: 400px;
-    height: auto;
-}
-
-.four_zero_four_bg {
-    background-image: url(../images/404.gif);
-    background-size: cover;
-    height: 400px;
-    background-position: center;
 }
 
 .four_zero_four_bg h1 {
@@ -168,7 +154,7 @@ footer {
     text-align: center;
 }
 
-.link_404 {
+.link_error {
     color: #fff;
     padding: 10px 20px;
     background: black;
@@ -178,7 +164,7 @@ footer {
     text-decoration: none;
 }
 
-.contant_box_404 {
+.contant_box_error {
     margin-top: -50px;
     text-align: center;
 }

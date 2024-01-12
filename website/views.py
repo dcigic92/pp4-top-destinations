@@ -37,14 +37,9 @@ class CountryPostsView(generic.ListView):
         # Use the custom_title_function to convert the country name to title case
         # and replace "-" with spaces
         country = custom_title_function(country.replace('-', ' '))
-        # Try to get the country from the database
-        try:
-            # If the country exists, filter posts by country
-            country_id = Country.objects.get(name=country)
-            return Post.objects.filter(country_of_destination=country_id.id)
-        except Country.DoesNotExist:
-            # If the country does not exist, return an empty queryset
-            return Post.objects.none()
+        # Filter posts by country
+        country_id = Country.objects.get(name=country)
+        return Post.objects.filter(country_of_destination=country_id.id)
         
 
 # PostDetail view, written as a function, which takes the request, country, and slug as parameters 
