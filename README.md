@@ -24,6 +24,9 @@
 - [Setup](#setup)
 - [Deployment](#deployment)
     - [Heroku](#heroku)
+- [Testing](#testing)
+    - [Automated Testing](#automated-testing)
+    - [Manual Testing](#manual-testing)
 - [Credits](#credits)
     - [Content](#content)
     - [Images](#images)
@@ -161,6 +164,20 @@ I followed Agile methodology for this project, fostering flexibility and regular
 3. **Deployment:**
    - Deploy the project to Heroku by pushing the code to the Heroku remote repository, set Debug=False before final deployment.
 
+## Testing
+
+### Automated Testing
+
+As part of my project I decided to implement some automated testing into my project. I tested some forms, models and views. Tests can be found in /website/tests folder.
+
+Coverage report showed 78%.
+
+![Homepage](static/images/coverage_report.jpg)
+
+
+### Manual Testing
+
+-
 
 ## Credits
 
