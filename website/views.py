@@ -31,7 +31,7 @@ class CountryPostsView(generic.ListView):
     paginate_by = 3
 
     # Override the get_queryset method to filter posts by country
-    def get_queryset(self, request):
+    def get_queryset(self):
         # Get the country from the URL
         country = self.kwargs['country']
         # Use the custom_title_function to convert the country name to title case

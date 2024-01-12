@@ -1,3 +1,27 @@
+## User experience
+
+### Project goals
+- Project goal was inspire and encourage travel by showcasing the beauty and uniqueness of different locations.
+
+### User stories
+
+- As a Site Admin I can create draft posts so that I can finish writing my posts later.
+- As a Site admin I can remove comments and posts so that I can filter out bad behavior on my site.
+- As a Site User / Admin I can create, read, update and delete posts so that I can manage my content.
+- As a Site User I can use site navbar so that I can easily navigate different pages and find relevant informations.
+- As a Site User I can view a paginated list of posts so that I can easily select which post I want to view.
+- As a Site User I can click on a post so that I can view the full post.
+- As a Site User I can search posts so that I can find a specific post.
+- As a Site User I can register an account so that I can interact with the site content.
+- As a Site user I can login to the site so that I can access my account.
+- As a Site user I can logout from the site so that my account is kept secure.
+- As a Site User I can choose post categories so that I can easier find relevant posts.
+- As a Site User / Admin I can view comments on an individual post so that I can read the conversation.
+- As a Site User I can leave comments on a post so that I can be involved in the conversation.
+- As a Site User I can edit my comments so that I can fix typos.
+- As a Site user I can delete my comments so that I don't have to be involved in the conversation anymore.
+
+
 ## Technologies Used
 - Python
 - Django
@@ -15,6 +39,10 @@
 - [W3Schools](https://www.w3schools.com/)
 - [Stack Overflow](https://stackoverflow.com/)
 - [CI Python Linter](https://pep8ci.herokuapp.com/)
+
+## Agile Development Process
+GitHub Projects
+GitHub Projects served as an Agile tool for this project. It isn't a specialized tool, but with the right tags and project creation/issue assignments, it can be made to work.
 
 ## Setup
 
