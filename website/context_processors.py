@@ -11,6 +11,9 @@ def unique_countries(request):
         # check if country is already in list
         if country not in unique_countries:
             unique_countries.append(country)
+    # sort by names
+    unique_countries.sort(key=lambda x: x.name)
+
     # return list of unique countries
     return {
         'unique_countries' : unique_countries
