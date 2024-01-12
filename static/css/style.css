@@ -107,7 +107,7 @@ footer {
 /* post_detail */
 
 .card-img-top {
-    max-height: 350px;
+    max-height: 400px;
 }
 
 .padding{
@@ -164,7 +164,7 @@ footer {
     text-decoration: none;
 }
 
-.contant_box_error {
+.content_box_error {
     margin-top: -50px;
     text-align: center;
 }

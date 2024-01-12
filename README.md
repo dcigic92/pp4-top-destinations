@@ -108,7 +108,8 @@ In this project I used google's font ***Montserrat***.
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [W3Schools](https://www.w3schools.com/)
 - [Stack Overflow](https://stackoverflow.com/)
-- [CI Python Linter](https://pep8ci.herokuapp.com/)
+- [Favicon](https://favicon.io/favicon-converter/)
+
 
 ## Agile Development Process
 
@@ -246,12 +247,18 @@ Coverage report showed 78%.
     - [Photo](https://unsplash.com/photos/aerial-view-of-city-buildings-during-daytime-zTiYT7HHzAE) by Geio Tischler - Hvar, Croatia
     - [Photo](https://unsplash.com/photos/silhouette-of-trees-near-body-of-water-during-sunset-FjCKt9WGxcI) by Cauayan Island Resort - El Nido, Philippines
     - [Photo](https://unsplash.com/photos/green-and-brown-mountain-beside-body-of-water-during-sunset-AEallbg9q_A) by Federico Beccari - Cliffs of Moher, Ireland
-    - [Photo](https://unsplash.com/photos/brown-and-white-concrete-houses-tnzzr8HpLhs) by Diogo Palhais - Galway, Ireland
+    - [Photo](https://unsplash.com/photos/a-body-of-water-with-boats-and-buildings-along-it-ov5S-3erSlY) by Francesco Dondi - Galway, Ireland
+    - [Photo](https://unsplash.com/photos/island-under-white-sky-exFdOWkYBQw) by Alfiano Sutianto - Nusa Penida, Indonesia
+
+- [Flaticon](https://www.flaticon.com/)
+    -[Photo](https://www.flaticon.com/free-icons/world) World icons created by Freepik - Flaticon
+
 
 ### Code
-
+  
 - Found out about context processors on [Stackoverflow](https://stackoverflow.com/).
 - Some parts of the code were inspired by Django Blog Project from [Code institute](https://learn.codeinstitute.net/dashboard).
+
 
 ## Acknowledgements
 

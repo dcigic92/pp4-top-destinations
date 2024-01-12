@@ -12,7 +12,7 @@
         <div class="col-md-8 offset-md-2">
             <h3>{{post.destination_name}}, {{post.country_of_destination}}</h3>
             <div>
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data">
                     {{ post_form | crispy }}
                     {% csrf_token %}
                     <button class="btn btn-dark">Update</button>
