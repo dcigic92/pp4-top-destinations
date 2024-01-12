@@ -1,3 +1,21 @@
+## Technologies Used
+- Python
+- Django
+- PostgreSQL
+- HTML
+- CSS
+- Javascript
+- Bootstrap
+- [Elephant SQL](https://www.elephantsql.com/)
+- [Cloudinary](https://cloudinary.com/)
+- [Heroku](https://heroku.com/)
+- [Git](https://git-scm.com/)
+- [Github](https://github.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [W3Schools](https://www.w3schools.com/)
+- [Stack Overflow](https://stackoverflow.com/)
+- [CI Python Linter](https://pep8ci.herokuapp.com/)
+
 ## Setup
 
 1. **Clone the repository:**

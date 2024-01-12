@@ -131,6 +131,7 @@ def delete_comment(request, country, slug, comment_id):
 
 # AddPost view, written as a function, which takes the request as a parameter
 def add_post(request):
+    
     # If the request method is POST, create a new post
     if request.method == "POST":
         # Create a new post using the data from the request
@@ -142,6 +143,9 @@ def add_post(request):
             post.author = request.user
             post.slug = slugify(post.destination_name)
             post.save() # Save
+
+    # Create a new blank post form
+    post_form = PostForm()
 
     # Redirect user to home page if method was post
     if request.method == "POST":
