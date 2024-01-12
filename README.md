@@ -1,39 +1,30 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+## Credits
 
-Welcome,
+### Text
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+- All content text taken from [Wikipedia](https://wikipedia.org/).
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+### Images 
 
-## Codeanywhere Reminders
+- [Pexels](https://www.pexels.com/)
+    - [Photo](https://www.pexels.com/photo/person-with-toy-airplane-on-world-map-3769138/) by Andrea Piacquadio - Default image
+    - [Photo](https://www.pexels.com/photo/view-of-the-coast-in-split-croatia-18759978/) by Jan Tang - Split, Croatia
+    - [Photo](https://www.pexels.com/photo/colosseum-rome-italy-2064827/) by Davi Pimentel - Rome, Italy
+    - [Photo](https://www.pexels.com/photo/illuminated-eiffel-tower-at-night-19738542/) by Ali Burak - Paris, France
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+- [Unsplash](https://unsplash.com/)
+    - [Photo](https://unsplash.com/photos/aerial-view-of-city-buildings-during-daytime-zTiYT7HHzAE) by Geio Tischler - Hvar, Croatia
+    - [Photo](https://unsplash.com/photos/silhouette-of-trees-near-body-of-water-during-sunset-FjCKt9WGxcI) by Cauayan Island Resort - El Nido, Philippines
+    - [Photo](https://unsplash.com/photos/green-and-brown-mountain-beside-body-of-water-during-sunset-AEallbg9q_A) by Federico Beccari - Cliffs of Moher, Ireland
+    - [Photo](https://unsplash.com/photos/brown-and-white-concrete-houses-tnzzr8HpLhs) by Diogo Palhais - Galway, Ireland
 
-`python3 -m http.server`
+### Code
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+- Found out about context processors on [stackoverflow](https://stackoverflow.com/).
+- Some parts of the code were inspired by Django Blog Project from [Code institute](https://learn.codeinstitute.net/dashboard).
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+## Acknowledgements
 
-`http_server`
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
----
-
-Happy coding!
+- My mentor **Akshat Garg** for his feedback and advice.
+- Our cohort facilitator **Alan Bushell** and slack community.
+- My wife and friends for help with testing.
