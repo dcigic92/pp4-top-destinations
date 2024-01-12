@@ -31,7 +31,7 @@ class CountryPostsView(generic.ListView):
     paginate_by = 3
 
     # Override the get_queryset method to filter posts by country
-    def get_queryset(self):
+    def get_queryset(self, request):
         # Get the country from the URL
         country = self.kwargs['country']
         # Use the custom_title_function to convert the country name to title case
@@ -230,3 +230,6 @@ class SearchView(generic.TemplateView):
         # Render the template with the paginated posts and search term
         context = {'posts': posts, 'search_term': search_term}
         return render(request, self.template_name, context)
+
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
