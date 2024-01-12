@@ -26,7 +26,12 @@
     - [Heroku](#heroku)
 - [Testing](#testing)
     - [Automated Testing](#automated-testing)
+    - [Validation](#validation)
     - [Manual Testing](#manual-testing)
+        - [Account Registration](#account-registration)
+        - [Navigation](#navigation)
+        - [Pagination](#pagination)
+        - [CRUD](#crud)
 - [Credits](#credits)
     - [Content](#content)
     - [Images](#images)
@@ -36,7 +41,7 @@
 ## User experience
 
 ### Project goals
-- Project goal was inspire and encourage travel by showcasing the beauty and uniqueness of different locations.
+- Project goal was to inspire and encourage travel by showcasing the beauty and uniqueness of different locations.
 
 ### User stories
 
@@ -60,7 +65,7 @@
 ## Design
 
 ### Colours
-Used only black and white color, and bootstraps dark class.
+Used only black and white color, and Bootstrap's dark class.
 
 ### Typography
 In this project I used google's font ***Montserrat***.
@@ -168,16 +173,60 @@ I followed Agile methodology for this project, fostering flexibility and regular
 
 ### Automated Testing
 
-As part of my project I decided to implement some automated testing into my project. I tested some forms, models and views. Tests can be found in /website/tests folder.
+As part of my project I decided to implement some automated testing into my project. I tested forms, models and views using Python unittest modul. Tests can be found in /website/tests folder.
 
 Coverage report showed 78%.
 
-![Homepage](static/images/coverage_report.jpg)
+![Coverage](static/images/coverage_report.jpg)
 
+### Validation
+
+- CSS validated with [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
+- HTML validated with [W3C HTML5 Validator](https://validator.w3.org/).
+- JavaScript was tested with [JSHint](https://jshint.com/).
+- Python has been validated using the [PEP8 Python Checker](https://www.pythonchecker.com/).
 
 ### Manual Testing
 
--
+#### Account Registration
+| Test |Result |
+|--|--|
+| User can register account|Pass|
+| User can log in|Pass|
+| User can log out|Pass|
+---
+
+#### Navigation
+| Test |Result |
+|--|--|
+|User can sort by countries|Pass|
+|User can open add new post|Pass|
+|User can use search bar|Pass|
+|User can open post detail|Pass|
+|User can open go back to homepage|Pass|
+---
+
+#### Pagination
+| Test |Result |
+|--|--|
+|Pagination on homepage|Pass|
+|Pagination on sorted by countries page|Pass|
+|Pagination on search results page|Pass|
+---
+
+#### CRUD
+| Test |Result |
+|--|--|
+|User can view posts|Pass|
+|User can add new post|Pass|
+|User can edit post|Pass|
+|User can delete post|Pass|
+|User can view comments|Pass|
+|User can add new comment|Pass|
+|User can edit comment|Pass|
+|User can delete comment|Pass|
+---
+
 
 ## Credits
 
