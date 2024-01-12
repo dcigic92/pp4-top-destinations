@@ -127,3 +127,9 @@ footer {
     max-height: 400px; 
     overflow-y: auto;
 }
+
+/* Search */
+
+#search-form {
+    max-width: 250px;
+}
