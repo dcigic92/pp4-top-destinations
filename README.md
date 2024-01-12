@@ -2,11 +2,33 @@
 
 **This is a Django-based Travel Blog project where users can create posts about favourite destinations**
 
-![Homepage](assets/images/homepage.jpg)
+![Homepage](static/images/homepage.jpg)
 
 ***[Live website](https://dcigic92-pp4-top-destinations-a65b10a6448e.herokuapp.com/)*** created by **Dino Cigic**.
 
 ***
+
+## Table of Contents
+
+- [User experience](#user-experience)
+    - [Project goals](#project-goals)
+    - [User stories](#user-stories)
+- [Design](#design)
+    - [Colours](#colours)
+    - [Typography](#typography)
+- [Features](#features)
+    - [Existing features](#existing-features)
+    - [Features left to implement](#features-left-to-implement)
+- [Technologies Used](#technologies-used)
+- [Agile Development Process](#agile-development-process)
+- [Setup](#setup)
+- [Deployment](#deployment)
+    - [Heroku](#heroku)
+- [Credits](#credits)
+    - [Content](#content)
+    - [Images](#images)
+    - [Code](#code)
+- [Acknowledgements](#acknowledgements)
 
 ## User experience
 
@@ -57,7 +79,7 @@ In this project I used google's font ***Montserrat***.
 - Option to edit and delete posts for registered users.
 - Improved admin panel.
 
-### Futures left to implement
+### Features left to implement
 
 - User profile (update and delete).
 - Star rating and sorting posts by rating.
@@ -142,7 +164,7 @@ I followed Agile methodology for this project, fostering flexibility and regular
 
 ## Credits
 
-### Text
+### Content
 
 - All content text taken from [Wikipedia](https://wikipedia.org/).
 
