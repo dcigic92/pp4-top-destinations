@@ -19,6 +19,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script>
+        const searchPostsUrl = '{% url "search_posts" %}';
+    </script>
 </head>
 <body>
 
@@ -34,9 +37,6 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'home' %}">All Destinations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Top Rated</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -70,6 +70,10 @@
                     </li>
                     {% endif %}
                 </ul>
+                <form class="d-flex no-shadow" id="search-form">
+                    <input class="form-control me-2 no-shadow" type="search" placeholder="Search" aria-label="Search" id="search-input">
+                    <button class="btn btn-dark btn-sm" type="submit">Search</button>
+                </form>
             </div>
         </div>
     </nav>
@@ -87,6 +91,8 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Import the search.js file -->
+    <script src="{% static 'js/search.js' %}"></script>
     {% block js %}
     {% endblock %}
 </body>

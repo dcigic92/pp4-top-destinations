@@ -6,6 +6,7 @@ from .models import Post, Comment, Country
 from .forms import CommentForm, PostForm, EditPostForm
 from django.template.defaultfilters import slugify
 from .utils import custom_title_function
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 class PostList(generic.ListView):
@@ -134,3 +135,32 @@ def edit_post(request, country, slug, id):
         post_form = EditPostForm(instance=post)
         context = {'post_form': post_form, 'id': id, 'post': post}
         return render(request,'website/edit_post.html',context)
+
+
+class SearchView(generic.TemplateView):
+    model = Post
+    template_name = 'website/search_results.html'
+    paginate_by = 3
+
+    def get(self, request, *args, **kwargs):
+        search_term = request.GET.get('search_term', '')
+        # Filter posts by destination name containing the search term
+        posts = Post.objects.filter(destination_name__icontains=search_term, status=0)
+
+        # Use Paginator to paginate the queryset
+        paginator = Paginator(posts, self.paginate_by)
+        page = request.GET.get('page')
+
+        try:
+            # Get the requested page
+            posts = paginator.page(page)
+        except PageNotAnInteger:
+            # If the page parameter is not an integer, show the first page
+            posts = paginator.page(1)
+        except EmptyPage:
+            # If the requested page is out of range, show the last page
+            posts = paginator.page(paginator.num_pages)
+
+        # Render the template with the paginated posts and search term
+        context = {'posts': posts, 'search_term': search_term}
+        return render(request, self.template_name, context)
