@@ -1,3 +1,59 @@
+## Setup
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone git@github.com:dcigic92/pp4-top-destinations.git
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   pip3 install -r requirements.txt
+   ```
+
+3. **Generate migrations:**
+
+   ```bash
+   python3 manage.py makemigrrations
+   ```
+
+4. **Apply migrations:**
+
+   ```bash
+   python3 manage.py migrate
+   ```
+
+5. **Create a superuser:**
+
+   ```bash
+   python3 manage.py createsuperuser
+   ```
+
+   Follow the prompts to create an admin account.
+
+6. **Run the development server:**
+
+   ```bash
+   python3 manage.py runserver
+   ```
+
+   The project should now be accessible at http://127.0.0.1:8000/.
+
+## Deployment
+
+### Heroku:
+
+1. **Create Heroku App:**
+   - Create a new Heroku app and link it to the Git repository for the project.
+
+2. **Heroku Configurations:**
+   - In Heroku's settings set up config vars such as the Database URL, Cloudinary URL and the Secret Key.
+
+3. **Deployment:**
+   - Deploy the project to Heroku by pushing the code to the Heroku remote repository, set Debug=False before final deployment.
+
+
 ## Credits
 
 ### Text
@@ -20,7 +76,7 @@
 
 ### Code
 
-- Found out about context processors on [stackoverflow](https://stackoverflow.com/).
+- Found out about context processors on [Stackoverflow](https://stackoverflow.com/).
 - Some parts of the code were inspired by Django Blog Project from [Code institute](https://learn.codeinstitute.net/dashboard).
 
 ## Acknowledgements
