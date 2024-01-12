@@ -133,3 +133,52 @@ footer {
 #search-form {
     max-width: 250px;
 }
+
+/* 404 */
+
+.page_404 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: #fff;
+    font-family: "Arvo", serif;
+}
+
+.page_404 img {
+    width: 80%;
+    max-width: 400px;
+    height: auto;
+}
+
+.four_zero_four_bg {
+    background-image: url(../images/404.gif);
+    background-size: cover;
+    height: 400px;
+    background-position: center;
+}
+
+.four_zero_four_bg h1 {
+    font-size: 80px;
+    text-align: center;
+}
+
+.four_zero_four_bg h3 {
+    font-size: 80px;
+    text-align: center;
+}
+
+.link_404 {
+    color: #fff;
+    padding: 10px 20px;
+    background: black;
+    margin: 20px 0;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.contant_box_404 {
+    margin-top: -50px;
+    text-align: center;
+}
