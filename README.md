@@ -1,3 +1,13 @@
+# Top Destinations
+
+**This is a Django-based Travel Blog project where users can create posts about favourite destinations**
+
+![Homepage](assets/images/homepage.jpg)
+
+***[Live website](https://dcigic92-pp4-top-destinations-a65b10a6448e.herokuapp.com/)*** created by **Dino Cigic**.
+
+***
+
 ## User experience
 
 ### Project goals
@@ -20,6 +30,16 @@
 - As a Site User I can leave comments on a post so that I can be involved in the conversation.
 - As a Site User I can edit my comments so that I can fix typos.
 - As a Site user I can delete my comments so that I don't have to be involved in the conversation anymore.
+
+
+## Design
+
+### Colours
+Used only black and white color, and bootstraps dark class.
+
+### Typography
+In this project I used google's font ***Montserrat***.
+
 
 ## Features
 
@@ -61,8 +81,8 @@
 - [CI Python Linter](https://pep8ci.herokuapp.com/)
 
 ## Agile Development Process
-GitHub Projects
-GitHub Projects served as an Agile tool for this project. It isn't a specialized tool, but with the right tags and project creation/issue assignments, it can be made to work.
+
+I followed Agile methodology for this project, fostering flexibility and regular progress updates. This approach allowed me to deliver increments efficiently. I used Github Kanban board for this project and created Kanban board with four columns: "To Do" "In Progress" "Done" and "Left to implement". Project contains 20 user stories. Link to project's user stories [here](https://github.com/users/dcigic92/projects/4).
 
 ## Setup
 
