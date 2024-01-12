@@ -21,6 +21,26 @@
 - As a Site User I can edit my comments so that I can fix typos.
 - As a Site user I can delete my comments so that I don't have to be involved in the conversation anymore.
 
+## Features
+
+### Existing features
+
+- Paginated view of all posts on the homepage.
+- Paginated view of posts from the chosen country.
+- Paginated view of posts from the search result.
+- Detailed view of each post.
+- Reading comments.
+- Account registration, login and logout.
+- Option to comment on posts for registered users.
+- Option to edit and delete comments for registered users.
+- Option to add posts for registered users.
+- Option to edit and delete posts for registered users.
+- Improved admin panel.
+
+### Futures left to implement
+
+- User profile (update and delete).
+- Star rating and sorting posts by rating.
 
 ## Technologies Used
 - Python
